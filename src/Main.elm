@@ -1,7 +1,6 @@
 module Main exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (..)
 
 
 -- import Time.DateTime as DateTime exposing (DateTime, dateTime)
