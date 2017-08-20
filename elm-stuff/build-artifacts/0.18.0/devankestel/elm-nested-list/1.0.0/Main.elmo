@@ -1,25 +1,77 @@
-var _devankestel$elm_nested_list$Main$view = function (model) {
-	var header = 'Tasks';
+var _devankestel$elm_nested_list$Main$task = function (task) {
 	return A2(
-		_elm_lang$html$Html$div,
+		_elm_lang$html$Html$li,
+		{ctor: '[]'},
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$style(
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{ctor: '[]'},
 				{
 					ctor: '::',
-					_0: {ctor: '_Tuple2', _0: 'font-family', _1: 'Helvetica'},
+					_0: _elm_lang$html$Html$text(
+						_elm_lang$core$Basics$toString(task.completion.isCompleted)),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(task.title),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text(task.category.name),
+							_1: {ctor: '[]'}
+						}),
 					_1: {
 						ctor: '::',
-						_0: {ctor: '_Tuple2', _0: 'font-size', _1: '40px'},
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(
+									_elm_lang$core$Basics$toString(task.category.pointValue)),
+								_1: {ctor: '[]'}
+							}),
 						_1: {
 							ctor: '::',
-							_0: {ctor: '_Tuple2', _0: 'margin-left', _1: '40px'},
+							_0: A2(
+								_elm_lang$html$Html$div,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text(
+										_elm_lang$core$Basics$toString(task.completion.dateCompleted)),
+									_1: {ctor: '[]'}
+								}),
 							_1: {ctor: '[]'}
 						}
 					}
-				}),
-			_1: {ctor: '[]'}
-		},
+				}
+			}
+		});
+};
+var _devankestel$elm_nested_list$Main$taskList = function (model) {
+	return A2(
+		_elm_lang$html$Html$ul,
+		{ctor: '[]'},
+		A2(_elm_lang$core$List$map, _devankestel$elm_nested_list$Main$task, model.tasks));
+};
+var _devankestel$elm_nested_list$Main$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
 		{
 			ctor: '::',
 			_0: A2(
@@ -27,46 +79,53 @@ var _devankestel$elm_nested_list$Main$view = function (model) {
 				{ctor: '[]'},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text(header),
+					_0: _elm_lang$html$Html$text('Tasks'),
 					_1: {ctor: '[]'}
 				}),
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: _devankestel$elm_nested_list$Main$taskList(model),
+				_1: {ctor: '[]'}
+			}
 		});
+};
+var _devankestel$elm_nested_list$Main$maze = {name: 'Maze', pointValue: 10};
+var _devankestel$elm_nested_list$Main$mermaid = {name: 'Mermaid', pointValue: 3};
+var _devankestel$elm_nested_list$Main$dragon = {name: 'Dragon', pointValue: 1};
+var _devankestel$elm_nested_list$Main$categories = {
+	ctor: '::',
+	_0: _devankestel$elm_nested_list$Main$dragon,
+	_1: {
+		ctor: '::',
+		_0: _devankestel$elm_nested_list$Main$mermaid,
+		_1: {
+			ctor: '::',
+			_0: _devankestel$elm_nested_list$Main$maze,
+			_1: {ctor: '[]'}
+		}
+	}
 };
 var _devankestel$elm_nested_list$Main$tasks = {
 	ctor: '::',
 	_0: {
 		title: 'This is the first task. Dragons.',
-		category: {name: 'Dragon', pointValue: 1},
+		category: _devankestel$elm_nested_list$Main$dragon,
 		completion: {isCompleted: false, dateCompleted: 0}
 	},
 	_1: {
 		ctor: '::',
 		_0: {
 			title: 'This is the second task. Mermaids.',
-			category: {name: 'Mermaid', pointValue: 2},
+			category: _devankestel$elm_nested_list$Main$mermaid,
 			completion: {isCompleted: false, dateCompleted: 0}
 		},
 		_1: {
 			ctor: '::',
 			_0: {
 				title: 'This is the third task. Maze.',
-				category: {name: 'Maze', pointValue: 10},
+				category: _devankestel$elm_nested_list$Main$maze,
 				completion: {isCompleted: false, dateCompleted: 0}
 			},
-			_1: {ctor: '[]'}
-		}
-	}
-};
-var _devankestel$elm_nested_list$Main$categories = {
-	ctor: '::',
-	_0: {name: 'Dragon', pointValue: 1},
-	_1: {
-		ctor: '::',
-		_0: {name: 'Mermaid', pointValue: 3},
-		_1: {
-			ctor: '::',
-			_0: {name: 'Maze', pointValue: 10},
 			_1: {ctor: '[]'}
 		}
 	}

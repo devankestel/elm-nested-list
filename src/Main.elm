@@ -46,32 +46,47 @@ type alias Model =
     }
 
 
+dragon : Category
+dragon =
+    { name = "Dragon"
+    , pointValue = 1
+    }
+
+
+mermaid : Category
+mermaid =
+    { name = "Mermaid"
+    , pointValue = 3
+    }
+
+
+maze : Category
+maze =
+    { name = "Maze"
+    , pointValue = 10
+    }
+
+
 categories : List Category
 categories =
-    [ { name = "Dragon"
-      , pointValue = 1
-      }
-    , { name = "Mermaid"
-      , pointValue = 3
-      }
-    , { name = "Maze"
-      , pointValue = 10
-      }
+    [ dragon
+    , mermaid
+    , maze
     ]
 
 
 tasks : List Task
 tasks =
     [ { title = "This is the first task. Dragons."
-      , category = { name = "Dragon", pointValue = 1 }
+      , category = dragon
       , completion = { isCompleted = False, dateCompleted = 0 }
       }
     , { title = "This is the second task. Mermaids."
-      , category = { name = "Mermaid", pointValue = 2 }
+      , category = mermaid
       , completion = { isCompleted = False, dateCompleted = 0 }
       }
     , { title = "This is the third task. Maze."
-      , category = { name = "Maze", pointValue = 10 }
+      , category = maze
       , completion = { isCompleted = False, dateCompleted = 0 }
       }
     ]
@@ -105,16 +120,25 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-    let
-        header =
-            ("Tasks")
-    in
-        div
-            [ style
-                [ ( "font-family", "Helvetica" )
-                , ( "font-size", "40px" )
-                , ( "margin-left", "40px" )
-                ]
-            ]
-            [ h1 [] [ text header ]
-            ]
+    div []
+        [ h1 [] [ text "Tasks" ]
+        , taskList model
+        ]
+
+
+taskList : Model -> Html Msg
+taskList model =
+    model.tasks
+        |> List.map task
+        |> ul []
+
+
+task : Task -> Html Msg
+task task =
+    li []
+        [ div [] [ text (toString task.completion.isCompleted) ]
+        , div [] [ text task.title ]
+        , div [] [ text task.category.name ]
+        , div [] [ text (toString task.category.pointValue) ]
+        , div [] [ text (toString task.completion.dateCompleted) ]
+        ]
