@@ -1,0 +1,98 @@
+var _devankestel$elm_nested_list$Main$view = function (model) {
+	var header = 'Tasks';
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				{
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'font-family', _1: 'Helvetica'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'font-size', _1: '40px'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'margin-left', _1: '40px'},
+							_1: {ctor: '[]'}
+						}
+					}
+				}),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$h1,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(header),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _devankestel$elm_nested_list$Main$tasks = {
+	ctor: '::',
+	_0: {
+		title: 'This is the first task. Dragons.',
+		category: {name: 'Dragon', pointValue: 1},
+		completion: {isCompleted: false, dateCompleted: 0}
+	},
+	_1: {
+		ctor: '::',
+		_0: {
+			title: 'This is the second task. Mermaids.',
+			category: {name: 'Mermaid', pointValue: 2},
+			completion: {isCompleted: false, dateCompleted: 0}
+		},
+		_1: {
+			ctor: '::',
+			_0: {
+				title: 'This is the third task. Maze.',
+				category: {name: 'Maze', pointValue: 10},
+				completion: {isCompleted: false, dateCompleted: 0}
+			},
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _devankestel$elm_nested_list$Main$categories = {
+	ctor: '::',
+	_0: {name: 'Dragon', pointValue: 1},
+	_1: {
+		ctor: '::',
+		_0: {name: 'Mermaid', pointValue: 3},
+		_1: {
+			ctor: '::',
+			_0: {name: 'Maze', pointValue: 10},
+			_1: {ctor: '[]'}
+		}
+	}
+};
+var _devankestel$elm_nested_list$Main$initModel = {categories: _devankestel$elm_nested_list$Main$categories, tasks: _devankestel$elm_nested_list$Main$tasks};
+var _devankestel$elm_nested_list$Main$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		return _devankestel$elm_nested_list$Main$initModel;
+	});
+var _devankestel$elm_nested_list$Main$main = _elm_lang$html$Html$beginnerProgram(
+	{model: _devankestel$elm_nested_list$Main$initModel, view: _devankestel$elm_nested_list$Main$view, update: _devankestel$elm_nested_list$Main$update})();
+var _devankestel$elm_nested_list$Main$Category = F2(
+	function (a, b) {
+		return {name: a, pointValue: b};
+	});
+var _devankestel$elm_nested_list$Main$Completion = F2(
+	function (a, b) {
+		return {isCompleted: a, dateCompleted: b};
+	});
+var _devankestel$elm_nested_list$Main$Task = F3(
+	function (a, b, c) {
+		return {title: a, category: b, completion: c};
+	});
+var _devankestel$elm_nested_list$Main$Model = F2(
+	function (a, b) {
+		return {categories: a, tasks: b};
+	});
+var _devankestel$elm_nested_list$Main$Clear = {ctor: 'Clear'};
